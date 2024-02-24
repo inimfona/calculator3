@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+   <div class="con">
+        <div class="base">
+           <div class="">
+            <input type="text" class="text" id="text">
+            <div class="">
+                <input type="button" class="btn" value="CLR" onclick="text.value=''">
+                <input type="button" class="btn" value="DEL" onclick="text.value =text.value.slice(0,-1)">
+                <input type="button" class="btn" value="00" onclick="text.value += '00'">
+                <input type="button" class="btn" value="=" id="evaluate">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="9" onclick="text.value += '9'">
+                <input type="button" class="btn" value="8" onclick="text.value += '8'">
+                <input type="button" class="btn" value="7" onclick="text.value += '7'">
+                <input type="button" class="btn" value="-" onclick="text.value += '-'">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="6" onclick="text.value += '6'">
+                <input type="button" class="btn" value="5" onclick="text.value += '5'">
+                <input type="button" class="btn" value="4" onclick="text.value += '4'">
+                <input type="button" class="btn" value="+" onclick="text.value += '+'">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="3" onclick="text.value += '3'">
+                <input type="button" class="btn" value="2" onclick="text.value += '2'">
+                <input type="button" class="btn" value="1" onclick="text.value += '1'">
+                <input type="button" class="btn" value="x" onclick="text.value += '*'">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="0" onclick="text.value += '0'">
+                <input type="button" class="btn" value="1" onclick="text.value = ''">
+                <input type="button" class="btn" value="√x" onclick="text.value =Math.sqrt(text.value)">
+                <input type="button" class="btn" value="^" onclick="text.value += '**'">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="sin" onclick="text.value =Math.sin(text.value)">
+                <input type="button" class="btn" value="cos" onclick="text.value =Math.cos(text.value)">
+                <input type="button" class="btn" value="tan" onclick="text.value =Math.tan(text.value)">
+                <input type="button" class="btn" value="tan" onclick="text.value =Math.tan(text.value)">
+            </div>
+            <div class="">
+                <input type="button" class="btn" value="sinh" onclick="text.value =Math.sinh(text.value)">
+                <input type="button" class="btn" value="cosh" onclick="text.value =Math.cosh(text.value)">
+                <input type="button" class="btn" value="tanh" onclick="text.value =Math.tanh(text.value)">
+                <input type="button" class="btn" value="tan" onclick="text.value =Math.tan(text.value)">
+            </div>
+           </div>
+        </div>
+   </div>
+   
+    <script>
+        let evaluate=document.getElementById('evaluate')
+        let text=document.getElementById('text')
+        evaluate.addEventListener('click',eval1)
+        function eval1(){
+            try { 
+                text.value = eval(text.value); 
+            } catch(err) {
+                text.value = 'Syntax error';
+            }
+            if(text.value==="undefined"){
+                text.value=""
+            }
+        }
+    </script>
+</body>
+</html>
